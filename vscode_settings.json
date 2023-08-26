@@ -1,0 +1,38 @@
+{
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "editor.tabSize": 2,
+  "eslint.quiet": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false,
+    "source.addMissingImports": true,
+    "source.organizeImports": true
+  },
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "html.validate.styles": false,
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true,
+    "javascript": true,
+    "typescript": true
+  },
+  "workbench.startupEditor": "none",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": -1
+}
