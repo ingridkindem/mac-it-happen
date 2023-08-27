@@ -36,8 +36,8 @@ The script installs the following tools:
 1. Clone this repository to your local machine:
 
    ```sh
-   git clone https://github.com/your-username/mac-dev-setup.git
-   cd mac-dev-setup
+   git clone https://github.com/ingridkindem/mac-it-happen.git
+   cd mac-it-happen
    ```
 
 2. Make the script executable:
