@@ -117,11 +117,36 @@ brew install --cask tableplus
 echo "Upgrading packages..."
 brew upgrade
 
-# Install oh-my-zsh and enable git plugin
+# ... other parts of your script ...
+
+# Install oh-my-zsh and enable plugins
 echo "Installing oh-my-zsh and enabling git plugin..."
 echo "You might be prompted to enter your password to change your shell to zsh."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sed -i '' 's/plugins=(/plugins=(git /' ~/.zshrc
+source ~/.zshrc
+
+# Install zsh-autosuggestions
+echo "Installing zsh-autosuggestions..."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install zsh-syntax-highlighting
+echo "Installing zsh-syntax-highlighting..."
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Install alias-tips
+echo "Installing alias-tips..."
+git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
+
+# Enable plugins in .zshrc
+echo "Enabling plugins in .zshrc..."
+sed -i '' 's/plugins=(git /plugins=(git zsh-autosuggestions zsh-syntax-highlighting alias-tips /' ~/.zshrc
+source ~/.zshrc
+
+# Add gb alias
+echo "Adding gb alias..."
+echo "alias gb='git branch --sort=-committerdate'" >> ~/.zshrc
+
 source ~/.zshrc
 
 echo "Installation complete! Please manually install any additional software not available via Homebrew."

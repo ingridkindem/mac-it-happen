@@ -24,7 +24,7 @@ The script installs the following tools:
 - Raycast
 - Spotify
 - TablePlus
-- oh-my-zsh with git plugin
+- oh-my-zsh with plugins
 
 ## Prerequisites
 
