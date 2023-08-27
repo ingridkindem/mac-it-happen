@@ -10,10 +10,11 @@ xcode-select --install
 # Install Homebrew
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 
 # Update Homebrew and install packages
 echo "Updating Homebrew and installing packages..."
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
 # Install Node.js
@@ -123,7 +124,13 @@ brew upgrade
 echo "Installing oh-my-zsh and enabling git plugin..."
 echo "You might be prompted to enter your password to change your shell to zsh."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sed -i '' 's/plugins=(/plugins=(git /' ~/.zshrc
+
+# Enable plugins and alias in .zshrc
+echo "Enabling plugins and alias in .zshrc..."
+PLUGINS="plugins=(git zsh-autosuggestions zsh-syntax-highlighting alias-tips)"
+ALIAS="alias gb='git branch --sort=-committerdate'"
+echo -e "\n# Custom plugins and alias added by setup script\n$PLUGINS\n$ALIAS" >> ~/.zshrc
+
 source ~/.zshrc
 
 # Install zsh-autosuggestions
