@@ -121,7 +121,13 @@ brew upgrade
 echo "Installing oh-my-zsh and enabling git plugin..."
 echo "You might be prompted to enter your password to change your shell to zsh."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sed -i '' 's/plugins=(/plugins=(git /' ~/.zshrc
+
+# Enable plugins and alias in .zshrc
+echo "Enabling plugins and alias in .zshrc..."
+PLUGINS="plugins=(git zsh-autosuggestions zsh-syntax-highlighting alias-tips)"
+ALIAS="alias gb='git branch --sort=-committerdate'"
+echo -e "\n# Custom plugins and alias added by setup script\n$PLUGINS\n$ALIAS" >> ~/.zshrc
+
 source ~/.zshrc
 
 echo "Installation complete! Please manually install any additional software not available via Homebrew."
